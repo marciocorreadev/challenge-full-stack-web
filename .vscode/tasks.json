@@ -2,12 +2,12 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"type": "npm",
+			"label": "build",
 			"script": "build",
-			"group": "build",
-			"problemMatcher": [],
-			"label": "npm: build",
-			"detail": "cd api && babel src --extensions \".js,.ts,.tsx\" --out-dir dist --copy-files --no-copy-ignored"
+			"type": "npm",
+			"options": {
+                "cwd": "${workspaceRoot}/api"
+            },
 		}
 	]
 }
