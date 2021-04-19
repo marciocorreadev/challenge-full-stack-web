@@ -32,8 +32,8 @@
       "@controllers/*": [
         "controllers/*"
       ],
-      "@database/*": [
-        "database/*"
+      "@database": [
+        "database/index"
       ],
       "@errors/*": [
         "errors/index"
