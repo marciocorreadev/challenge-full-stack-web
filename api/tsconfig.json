@@ -23,6 +23,7 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "strictPropertyInitialization": false,
     "baseUrl": "./src",
     "moduleResolution": "node",
     "paths": {
@@ -40,6 +41,9 @@
       ],
       "@repositories/*": [
         "repositories/*"
+      ],
+      "@models/*": [
+        "models/*"
       ],
       "@services/*": [
         "services/*"
