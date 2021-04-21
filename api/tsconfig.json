@@ -37,7 +37,7 @@
         "database/index"
       ],
       "@errors/*": [
-        "errors/index"
+        "errors/*"
       ],
       "@repositories/*": [
         "repositories/*"
@@ -66,6 +66,6 @@
     }
   },
   "include": [
-    "src",
+    "src"
   ]
 }
