@@ -1,18 +1,18 @@
-import AppError from '@errors/AppErro';
-import Student from '@models/Students';
-import { studentValidate } from '@validators';
-import { Request, Response } from 'express';
-import { getCustomRepository } from 'typeorm';
+import AppError from '@errors/AppErro'
+import Student from '@models/Students'
+import { studentValidate } from '@validators'
+import { Request, Response } from 'express'
+import { getConnection } from 'typeorm'
 
-import StudentRepository from '../repositories/StudentsRepository';
+import StudentRepository from '../repositories/StudentsRepository'
 
 export default class StudentController {
 
     async create({ body }: Request, response: Response) {
         const
             { name, email, cpf, ra } = body,
-            studentRepository = getCustomRepository(StudentRepository),
-            student = { email, name, cpf, ra } as Student;
+            student = { email, name, cpf, ra } as Student,
+            studentRepository = getConnection(process.env.NODE_ENV).getCustomRepository(StudentRepository);
 
         try {
             await studentValidate(student)
@@ -34,7 +34,7 @@ export default class StudentController {
     }
 
     async update({ body, params }: Request, response: Response) {
-        const { id } = params, studentRepository = getCustomRepository(StudentRepository)
+        const { id } = params, studentRepository = getConnection(process.env.NODE_ENV).getCustomRepository(StudentRepository)
 
         try {
             let student  = <Student>await studentRepository.findOne({id})
@@ -51,7 +51,7 @@ export default class StudentController {
     }
 
     async remove({ params }: Request, response: Response) {
-        const { id } = params, studentRepository = getCustomRepository(StudentRepository)
+        const { id } = params, studentRepository = getConnection(process.env.NODE_ENV).getCustomRepository(StudentRepository)
 
         try {
             let student  = <Student>await studentRepository.findOne({id})
@@ -65,7 +65,7 @@ export default class StudentController {
     }
 
     async show({ query: { limit = '10', skip = '0', keyword = '' } }: Request, response: Response) {
-        const studentRepository = getCustomRepository(StudentRepository)
+        const studentRepository = getConnection(process.env.NODE_ENV).getCustomRepository(StudentRepository)
 
         try {
             const [data, total] = await studentRepository.createQueryBuilder("user").skip(Number(skip)).limit(Number(limit))
@@ -78,7 +78,7 @@ export default class StudentController {
     }
 
     async findById({ params: { id } }: Request, response: Response) {
-        const studentRepository = getCustomRepository(StudentRepository)
+        const studentRepository = getConnection(process.env.NODE_ENV).getCustomRepository(StudentRepository)
 
         try {
             const student = await studentRepository.findOne(id) as Student

@@ -1,7 +1,7 @@
 version: '3'
 services:
 
-  postgres:
+  db:
     image: "postgres:9.6.1"
     ports:
       - "5432:5432"
@@ -9,4 +9,11 @@ services:
       POSTGRES_USER: "root"
       POSTGRES_PASSWORD: "root"
       POSTGRES_DB: "database"
-
+  db-test:
+    image: "postgres:9.6.1"
+    ports:
+      - "5444:5432"
+    environment:
+      POSTGRES_USER: "root"
+      POSTGRES_PASSWORD: "root"
+      POSTGRES_DB: "database_test"

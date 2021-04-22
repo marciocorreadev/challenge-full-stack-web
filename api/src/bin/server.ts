@@ -1,5 +1,5 @@
-import "reflect-metadata";
 import createConnection from '@database'
+import "reflect-metadata"
 import app from '@app'
 
 class Server {
