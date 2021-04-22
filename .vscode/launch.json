@@ -14,7 +14,10 @@
             "outFiles": [
                 "${workspaceFolder}/**/*.js",
                 "!**/node_modules/**"
-            ]
+            ],
+            "env": {
+                "NODE_ENV":"prod" 
+            },
         }
     ]
 }
