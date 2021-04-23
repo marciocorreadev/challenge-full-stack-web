@@ -34,17 +34,7 @@ $ npm run dev
 $ npm run test
 ```
 
-# Routes
-
-#### Doctor
-
--   GET - /student
--   GET - /student?page=1&limit=2
--   POST - /student/{id}
--   PUT/PATCH - /student/{id}
--   DELETE - /student/{id}
-
-
+#
 
 - Decisão da arquitetura utilizada
 > Adotei princípio da responsabilidade única do SOLID, onde cada arquivo tem sua responsábilidade.
