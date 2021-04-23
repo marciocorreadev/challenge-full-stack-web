@@ -8,6 +8,14 @@
 			"options": {
                 "cwd": "${workspaceRoot}/api"
             },
+		},
+		{
+			"label": "db",
+			"script": "start:db",
+			"type": "npm",
+			"options": {
+                "cwd": "${workspaceRoot}/api"
+            },
 		}
 	]
 }
